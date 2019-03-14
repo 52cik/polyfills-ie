@@ -61,5 +61,13 @@ function polyfill(name, uaString, minify = false) {
   const filePath = `polyfills/${name}/polyfill${minify ? '.min' : ''}.js`;
   return polyfillLibrary
     .getPolyfillString({ uaString, minify, features })
-    .then(bundle => fs.writeFileSync(filePath, bundle, 'utf8'));
+    .then(bundle => {
+      fs.writeFileSync(filePath, fixIE8bug(bundle), 'utf8');
+    });
+}
+
+// var Map = function Map() {} 压缩后 var a = function b() {} 在 IE8 下判定是否实例是用 b 导致报错。
+function fixIE8bug (str) {
+  const re = /var (Symbol|Map|Set) = function \1\(/g;
+  return str.replace(re, 'var $1 = function (');
 }
