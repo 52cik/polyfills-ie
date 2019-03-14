@@ -19,17 +19,18 @@ for (let i = 2015; i <= new Date().getFullYear(); i++) {
   esFeatures = esFeatures.concat(polyfillFeatures[`es${i}`] || []);
 }
 esFeatures.push('JSON'); // 额外添加 JSON
+esFeatures.push('atob'); // base64
 esFeatures.sort();
 
 // 忽略不需要的补丁
 const ignore = [
-  /^Array\.prototype\.(@@iterator|entries|values)$/,
+  // /^Array\.prototype\.(@@iterator|entries|values)$/,
   /^Function\.prototype\.name/,
   /^Math/,
-  /^Object\.(entries|freeze|getOwnPropertyDescriptor|getOwnPropertyNames|getPrototypeOf|seal|setPrototypeOf)/,
+  // /^Object\.(getOwnPropertyDescriptor|getOwnPropertyNames|getPrototypeOf|setPrototypeOf)/,
   /^RegExp/,
-  /^String\.prototype\.(@@iterator|codePointAt)/,
-  /^Symbol/,
+  /^String\.prototype\.codePointAt/,
+  // /^Symbol/,
   /^Weak/,
 ];
 
