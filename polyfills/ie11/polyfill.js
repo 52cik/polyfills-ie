@@ -1,42 +1,43 @@
 /* Polyfill service DEVELOPMENT MODE - for live use set NODE_ENV to 'production'
  * For detailed credits and licence information see https://github.com/financial-times/polyfill-service.
  * 
- * Features requested: Array.from,Array.isArray,Array.of,Array.prototype.copyWithin,Array.prototype.every,Array.prototype.fill,Array.prototype.filter,Array.prototype.find,Array.prototype.findIndex,Array.prototype.forEach,Array.prototype.includes,Array.prototype.indexOf,Array.prototype.keys,Array.prototype.lastIndexOf,Array.prototype.map,Array.prototype.reduce,Array.prototype.reduceRight,Array.prototype.some,Date.now,Date.prototype.toISOString,Function.prototype.bind,JSON,Map,Number.Epsilon,Number.MAX_SAFE_INTEGER,Number.MIN_SAFE_INTEGER,Number.isFinite,Number.isInteger,Number.isNaN,Number.isSafeInteger,Number.parseFloat,Number.parseInt,Object.assign,Object.create,Object.defineProperties,Object.defineProperty,Object.is,Object.keys,Object.values,Promise,Promise.prototype.finally,Set,String.prototype.endsWith,String.prototype.includes,String.prototype.padEnd,String.prototype.padStart,String.prototype.repeat,String.prototype.startsWith,String.prototype.trim
+ * Features requested: Array.from,Array.isArray,Array.of,Array.prototype.@@iterator,Array.prototype.copyWithin,Array.prototype.entries,Array.prototype.every,Array.prototype.fill,Array.prototype.filter,Array.prototype.find,Array.prototype.findIndex,Array.prototype.forEach,Array.prototype.includes,Array.prototype.indexOf,Array.prototype.keys,Array.prototype.lastIndexOf,Array.prototype.map,Array.prototype.reduce,Array.prototype.reduceRight,Array.prototype.some,Array.prototype.values,Date.now,Date.prototype.toISOString,Function.prototype.bind,JSON,Map,Number.Epsilon,Number.MAX_SAFE_INTEGER,Number.MIN_SAFE_INTEGER,Number.isFinite,Number.isInteger,Number.isNaN,Number.isSafeInteger,Number.parseFloat,Number.parseInt,Object.assign,Object.create,Object.defineProperties,Object.defineProperty,Object.entries,Object.freeze,Object.getOwnPropertyDescriptor,Object.getOwnPropertyNames,Object.getPrototypeOf,Object.is,Object.keys,Object.seal,Object.setPrototypeOf,Object.values,Promise,Promise.prototype.finally,Set,String.prototype.@@iterator,String.prototype.endsWith,String.prototype.includes,String.prototype.padEnd,String.prototype.padStart,String.prototype.repeat,String.prototype.startsWith,String.prototype.trim,Symbol,Symbol.hasInstance,Symbol.isConcatSpreadable,Symbol.iterator,Symbol.match,Symbol.replace,Symbol.search,Symbol.species,Symbol.split,Symbol.toPrimitive,Symbol.toStringTag,Symbol.unscopables,atob
  * 
- * - _ESAbstract.ArrayCreate, License: CC0 (required by "Array.from", "Array.of", "_ESAbstract.ArraySpeciesCreate", "Array.prototype.map", "Object.values", "Symbol", "Map", "Set", "Symbol.iterator", "Array.prototype.filter")
- * - _ESAbstract.Call, License: CC0 (required by "Array.from", "Array.prototype.find", "Array.prototype.findIndex", "_ESAbstract.GetIterator", "Map", "Set", "_ESAbstract.IteratorClose", "_ESAbstract.IteratorNext", "_ESAbstract.IteratorStep", "Array.prototype.map", "Object.values", "Symbol", "Symbol.iterator", "_ESAbstract.ToPrimitive", "_ESAbstract.ToString", "Array.of", "Array.prototype.fill", "Array.prototype.includes", "String.prototype.endsWith", "String.prototype.includes", "String.prototype.padEnd", "String.prototype.padStart", "String.prototype.repeat", "String.prototype.startsWith", "Array.prototype.forEach", "Object.setPrototypeOf", "_ArrayIterator", "Array.prototype.keys", "Array.prototype.filter", "_ESAbstract.OrdinaryToPrimitive")
+ * - _ESAbstract.ArrayCreate, License: CC0 (required by "Array.from", "Array.of", "_ESAbstract.ArraySpeciesCreate", "Array.prototype.map", "Object.values", "Symbol", "Map", "Set", "Array.prototype.filter")
+ * - _ESAbstract.Call, License: CC0 (required by "Array.from", "Array.prototype.find", "Array.prototype.findIndex", "_ESAbstract.GetIterator", "Map", "Set", "_ESAbstract.IteratorClose", "_ESAbstract.IteratorNext", "_ESAbstract.IteratorStep", "Array.prototype.forEach", "Object.setPrototypeOf", "Symbol", "Array.prototype.map", "Object.values", "Array.prototype.filter", "_ESAbstract.ToPrimitive", "_ESAbstract.ToString", "Array.of", "Array.prototype.fill", "Array.prototype.includes", "String.prototype.@@iterator", "String.prototype.endsWith", "String.prototype.includes", "String.prototype.padEnd", "String.prototype.padStart", "String.prototype.repeat", "String.prototype.startsWith", "_ESAbstract.OrdinaryToPrimitive")
  * - _ESAbstract.CreateDataProperty, License: CC0 (required by "_ESAbstract.CreateDataPropertyOrThrow", "Array.from", "Array.of", "_ESAbstract.CreateIterResultObject", "Map", "Set")
- * - _ESAbstract.CreateDataPropertyOrThrow, License: CC0 (required by "Array.from", "Array.of", "Array.prototype.map", "Object.values", "Symbol", "Map", "Set", "Symbol.iterator", "Array.prototype.filter")
- * - _ESAbstract.CreateMethodProperty, License: CC0 (required by "Array.from", "Array.of", "Array.prototype.copyWithin", "Array.prototype.fill", "Array.prototype.find", "Array.prototype.findIndex", "Array.prototype.includes", "Array.prototype.keys", "Map", "Number.isFinite", "Number.isInteger", "Number.isNaN", "Number.isSafeInteger", "Number.parseFloat", "Number.parseInt", "Object.assign", "Object.is", "Object.values", "Set", "String.prototype.endsWith", "String.prototype.includes", "String.prototype.padEnd", "String.prototype.padStart", "String.prototype.repeat", "String.prototype.startsWith", "Array.isArray", "Object.create", "_ESAbstract.GetIterator", "_ArrayIterator", "_ESAbstract.OrdinaryCreateFromConstructor", "_ESAbstract.Construct", "Symbol", "Symbol.iterator", "Object.getOwnPropertyDescriptor", "Object.keys", "Array.prototype.map", "Function.prototype.bind", "Object.setPrototypeOf", "Object.getPrototypeOf", "Array.prototype.forEach", "Array.prototype.filter", "Object.getOwnPropertyNames", "Object.freeze", "Object.defineProperties", "_Iterator")
- * - _ESAbstract.Get, License: CC0 (required by "Array.from", "Array.prototype.fill", "Array.prototype.find", "Array.prototype.findIndex", "Array.prototype.includes", "Object.assign", "_ESAbstract.IteratorValue", "Map", "Set", "_ESAbstract.IteratorComplete", "_ESAbstract.IteratorStep", "Array.prototype.map", "Object.values", "Symbol", "Symbol.iterator", "_ESAbstract.IsRegExp", "String.prototype.endsWith", "String.prototype.includes", "String.prototype.startsWith", "_ESAbstract.GetPrototypeFromConstructor", "_ESAbstract.OrdinaryCreateFromConstructor", "_ESAbstract.Construct", "Array.of", "Array.prototype.forEach", "Object.setPrototypeOf", "_ArrayIterator", "Array.prototype.keys", "Array.prototype.filter", "Object.defineProperties", "Object.create", "_ESAbstract.GetIterator", "_Iterator", "_ESAbstract.ArraySpeciesCreate", "_ESAbstract.OrdinaryToPrimitive", "_ESAbstract.ToPrimitive", "_ESAbstract.ToString", "String.prototype.padEnd", "String.prototype.padStart", "String.prototype.repeat")
- * - _ESAbstract.HasProperty, License: CC0 (required by "Array.prototype.copyWithin", "Array.prototype.map", "Object.values", "Symbol", "Map", "Array.from", "Set", "Symbol.iterator", "Array.prototype.forEach", "Object.setPrototypeOf", "_ArrayIterator", "Array.prototype.keys", "Array.prototype.filter")
- * - _ESAbstract.IsCallable, License: CC0 (required by "Array.from", "Array.prototype.find", "Array.prototype.findIndex", "Map", "Set", "_ESAbstract.GetMethod", "Array.prototype.map", "Object.values", "Symbol", "Symbol.iterator", "Function.prototype.bind", "_ESAbstract.Construct", "Array.of", "Object.getOwnPropertyDescriptor", "Object.assign", "Array.prototype.forEach", "Object.setPrototypeOf", "_ArrayIterator", "Array.prototype.keys", "Array.prototype.filter", "_ESAbstract.OrdinaryToPrimitive", "_ESAbstract.ToPrimitive", "_ESAbstract.ToString", "Array.prototype.fill", "Array.prototype.includes", "String.prototype.endsWith", "String.prototype.includes", "String.prototype.padEnd", "String.prototype.padStart", "String.prototype.repeat", "String.prototype.startsWith")
- * - _ESAbstract.RequireObjectCoercible, License: CC0 (required by "String.prototype.endsWith", "String.prototype.includes", "String.prototype.padEnd", "String.prototype.padStart", "String.prototype.repeat", "String.prototype.startsWith")
+ * - _ESAbstract.CreateDataPropertyOrThrow, License: CC0 (required by "Array.from", "Array.of", "Array.prototype.map", "Object.values", "Symbol", "Map", "Set", "Array.prototype.filter")
+ * - _ESAbstract.CreateMethodProperty, License: CC0 (required by "Array.from", "Array.of", "Array.prototype.@@iterator", "Array.prototype.copyWithin", "Array.prototype.entries", "Array.prototype.fill", "Array.prototype.find", "Array.prototype.findIndex", "Array.prototype.includes", "Array.prototype.keys", "Array.prototype.values", "Map", "Number.isFinite", "Number.isInteger", "Number.isNaN", "Number.isSafeInteger", "Number.parseFloat", "Number.parseInt", "Object.assign", "Object.entries", "Object.is", "Object.setPrototypeOf", "Object.values", "Set", "String.prototype.@@iterator", "String.prototype.endsWith", "String.prototype.includes", "String.prototype.padEnd", "String.prototype.padStart", "String.prototype.repeat", "String.prototype.startsWith", "Array.isArray", "Object.create", "Symbol", "_ESAbstract.GetIterator", "_ArrayIterator", "_ESAbstract.OrdinaryCreateFromConstructor", "_ESAbstract.Construct", "Object.getOwnPropertyDescriptor", "Object.keys", "Array.prototype.forEach", "Object.getPrototypeOf", "Object.getOwnPropertyNames", "Array.prototype.map", "Array.prototype.filter", "Object.freeze", "Function.prototype.bind", "Object.defineProperties", "_Iterator", "_StringIterator")
+ * - _ESAbstract.Get, License: CC0 (required by "Array.from", "Array.prototype.fill", "Array.prototype.find", "Array.prototype.findIndex", "Array.prototype.includes", "Object.assign", "_ESAbstract.IteratorValue", "Map", "Set", "_ESAbstract.IteratorComplete", "_ESAbstract.IteratorStep", "_ESAbstract.EnumerableOwnProperties", "Object.entries", "Array.prototype.forEach", "Object.setPrototypeOf", "Symbol", "Array.prototype.map", "Object.values", "_ESAbstract.IsRegExp", "String.prototype.endsWith", "String.prototype.includes", "String.prototype.startsWith", "Array.prototype.filter", "_ESAbstract.GetPrototypeFromConstructor", "_ESAbstract.OrdinaryCreateFromConstructor", "_ESAbstract.Construct", "Array.of", "Object.defineProperties", "Object.create", "_ESAbstract.GetIterator", "_ArrayIterator", "Array.prototype.entries", "Array.prototype.keys", "Array.prototype.values", "Array.prototype.@@iterator", "_Iterator", "_StringIterator", "String.prototype.@@iterator", "_ESAbstract.ArraySpeciesCreate", "_ESAbstract.OrdinaryToPrimitive", "_ESAbstract.ToPrimitive", "_ESAbstract.ToString", "String.prototype.padEnd", "String.prototype.padStart", "String.prototype.repeat")
+ * - _ESAbstract.HasProperty, License: CC0 (required by "Array.prototype.copyWithin", "Array.prototype.forEach", "Object.setPrototypeOf", "Symbol", "Map", "Array.from", "Set", "Array.prototype.map", "Object.values", "Array.prototype.filter")
+ * - _ESAbstract.IsCallable, License: CC0 (required by "Array.from", "Array.prototype.find", "Array.prototype.findIndex", "Map", "Set", "_ESAbstract.GetMethod", "Array.prototype.forEach", "Object.setPrototypeOf", "Symbol", "Array.prototype.map", "Object.values", "Array.prototype.filter", "Function.prototype.bind", "_ESAbstract.Construct", "Array.of", "Object.getOwnPropertyDescriptor", "Object.assign", "_ESAbstract.OrdinaryToPrimitive", "_ESAbstract.ToPrimitive", "_ESAbstract.ToString", "Array.prototype.fill", "Array.prototype.includes", "String.prototype.@@iterator", "String.prototype.endsWith", "String.prototype.includes", "String.prototype.padEnd", "String.prototype.padStart", "String.prototype.repeat", "String.prototype.startsWith")
+ * - _ESAbstract.RequireObjectCoercible, License: CC0 (required by "String.prototype.@@iterator", "String.prototype.endsWith", "String.prototype.includes", "String.prototype.padEnd", "String.prototype.padStart", "String.prototype.repeat", "String.prototype.startsWith")
  * - _ESAbstract.SameValueNonNumber, License: CC0 (required by "_ESAbstract.SameValueZero", "Array.prototype.includes", "Map", "Array.from", "Set", "_ESAbstract.SameValue", "Object.is")
- * - _ESAbstract.ToBoolean, License: CC0 (required by "Array.prototype.find", "Array.prototype.findIndex", "_ESAbstract.IteratorComplete", "Map", "Array.from", "Set", "_ESAbstract.IteratorStep", "_ESAbstract.IsRegExp", "String.prototype.endsWith", "String.prototype.includes", "String.prototype.startsWith", "Array.prototype.filter", "Symbol", "Symbol.iterator")
+ * - _ESAbstract.ToBoolean, License: CC0 (required by "Array.prototype.find", "Array.prototype.findIndex", "_ESAbstract.IteratorComplete", "Map", "Array.from", "Set", "_ESAbstract.IteratorStep", "_ESAbstract.IsRegExp", "String.prototype.endsWith", "String.prototype.includes", "String.prototype.startsWith", "Array.prototype.filter", "Symbol")
  * - _ESAbstract.ToInteger, License: CC0 (required by "Array.prototype.copyWithin", "Array.prototype.fill", "Array.prototype.includes", "Number.isInteger", "Number.isSafeInteger", "String.prototype.endsWith", "String.prototype.includes", "String.prototype.repeat", "String.prototype.startsWith", "_ESAbstract.ToLength", "Array.from", "Array.prototype.find", "Array.prototype.findIndex", "String.prototype.padEnd", "String.prototype.padStart")
- * - _ESAbstract.ToLength, License: CC0 (required by "Array.from", "Array.prototype.fill", "Array.prototype.find", "Array.prototype.findIndex", "Array.prototype.includes", "String.prototype.padEnd", "String.prototype.padStart", "Array.prototype.map", "Object.values", "Symbol", "Map", "Set", "Symbol.iterator", "Array.prototype.forEach", "Object.setPrototypeOf", "_ArrayIterator", "Array.prototype.keys", "Array.prototype.filter")
- * - _ESAbstract.ToObject, License: CC0 (required by "Array.from", "Array.prototype.fill", "Array.prototype.find", "Array.prototype.findIndex", "Array.prototype.includes", "Array.prototype.keys", "Object.assign", "Object.values", "Array.prototype.map", "Symbol", "Map", "Set", "Symbol.iterator", "_ESAbstract.GetV", "_ESAbstract.GetMethod", "_ESAbstract.GetIterator", "Array.prototype.forEach", "Object.setPrototypeOf", "_ArrayIterator", "Array.prototype.filter", "Object.defineProperties", "Object.create", "_ESAbstract.OrdinaryCreateFromConstructor", "_ESAbstract.Construct", "Array.of", "_Iterator")
+ * - _ESAbstract.ToLength, License: CC0 (required by "Array.from", "Array.prototype.fill", "Array.prototype.find", "Array.prototype.findIndex", "Array.prototype.includes", "String.prototype.padEnd", "String.prototype.padStart", "Array.prototype.forEach", "Object.setPrototypeOf", "Symbol", "Map", "Set", "Array.prototype.map", "Object.values", "Array.prototype.filter")
+ * - _ESAbstract.ToObject, License: CC0 (required by "Array.from", "Array.prototype.entries", "Array.prototype.fill", "Array.prototype.find", "Array.prototype.findIndex", "Array.prototype.includes", "Array.prototype.keys", "Array.prototype.values", "Array.prototype.@@iterator", "Object.assign", "Object.entries", "Object.values", "Array.prototype.forEach", "Object.setPrototypeOf", "Symbol", "Map", "Set", "Array.prototype.map", "Array.prototype.filter", "_ESAbstract.GetV", "_ESAbstract.GetMethod", "_ESAbstract.GetIterator", "Object.defineProperties", "Object.create", "_ArrayIterator", "_ESAbstract.OrdinaryCreateFromConstructor", "_ESAbstract.Construct", "Array.of", "_Iterator", "_StringIterator", "String.prototype.@@iterator")
  * - _ESAbstract.GetV, License: CC0 (required by "_ESAbstract.GetMethod", "Array.from", "Map", "Set", "_ESAbstract.GetIterator")
- * - _ESAbstract.GetMethod, License: CC0 (required by "Array.from", "Map", "Set", "_ESAbstract.IsConstructor", "Array.of", "_ESAbstract.GetIterator", "_ESAbstract.IteratorClose", "_ESAbstract.ToPrimitive", "_ESAbstract.ToString", "Array.prototype.fill", "Array.prototype.find", "Array.prototype.findIndex", "Array.prototype.includes", "String.prototype.endsWith", "String.prototype.includes", "String.prototype.padEnd", "String.prototype.padStart", "String.prototype.repeat", "String.prototype.startsWith")
- * - _ESAbstract.Type, License: CC0 (required by "Map", "Array.from", "Number.isFinite", "Number.isInteger", "Number.isNaN", "Number.isSafeInteger", "_ESAbstract.IsConstructor", "Array.of", "_ESAbstract.GetIterator", "Set", "_ESAbstract.IteratorClose", "_ESAbstract.ToString", "Array.prototype.fill", "Array.prototype.find", "Array.prototype.findIndex", "Array.prototype.includes", "String.prototype.endsWith", "String.prototype.includes", "String.prototype.padEnd", "String.prototype.padStart", "String.prototype.repeat", "String.prototype.startsWith", "_ESAbstract.IteratorValue", "_ESAbstract.SameValueZero", "_ESAbstract.CreateIterResultObject", "_ESAbstract.IteratorComplete", "_ESAbstract.IteratorStep", "_ESAbstract.IteratorNext", "Object.create", "_ArrayIterator", "Array.prototype.keys", "_ESAbstract.OrdinaryCreateFromConstructor", "_ESAbstract.Construct", "Symbol", "Symbol.iterator", "_ESAbstract.SameValue", "Object.is", "_ESAbstract.IsRegExp", "_ESAbstract.ToPrimitive", "_ESAbstract.GetPrototypeFromConstructor", "Object.defineProperties", "_Iterator", "_ESAbstract.ArraySpeciesCreate", "Array.prototype.map", "Object.values", "Array.prototype.filter", "_ESAbstract.OrdinaryToPrimitive")
+ * - _ESAbstract.GetMethod, License: CC0 (required by "Array.from", "Map", "Set", "_ESAbstract.IsConstructor", "Array.of", "_ESAbstract.GetIterator", "_ESAbstract.IteratorClose", "_ESAbstract.ToPrimitive", "_ESAbstract.ToString", "Array.prototype.fill", "Array.prototype.find", "Array.prototype.findIndex", "Array.prototype.includes", "String.prototype.@@iterator", "String.prototype.endsWith", "String.prototype.includes", "String.prototype.padEnd", "String.prototype.padStart", "String.prototype.repeat", "String.prototype.startsWith")
+ * - _ESAbstract.Type, License: CC0 (required by "Map", "Array.from", "Number.isFinite", "Number.isInteger", "Number.isNaN", "Number.isSafeInteger", "_ESAbstract.IsConstructor", "Array.of", "_ESAbstract.GetIterator", "Set", "_ESAbstract.IteratorClose", "_ESAbstract.ToString", "Array.prototype.fill", "Array.prototype.find", "Array.prototype.findIndex", "Array.prototype.includes", "String.prototype.@@iterator", "String.prototype.endsWith", "String.prototype.includes", "String.prototype.padEnd", "String.prototype.padStart", "String.prototype.repeat", "String.prototype.startsWith", "_ESAbstract.IteratorValue", "_ESAbstract.SameValueZero", "_ESAbstract.CreateIterResultObject", "_ESAbstract.IteratorComplete", "_ESAbstract.IteratorStep", "_ESAbstract.IteratorNext", "Object.create", "Object.setPrototypeOf", "Symbol", "_ArrayIterator", "Array.prototype.entries", "Array.prototype.keys", "Array.prototype.values", "Array.prototype.@@iterator", "_ESAbstract.OrdinaryCreateFromConstructor", "_ESAbstract.Construct", "_ESAbstract.EnumerableOwnProperties", "Object.entries", "_ESAbstract.SameValue", "Object.is", "_ESAbstract.IsRegExp", "_ESAbstract.ToPrimitive", "_ESAbstract.GetPrototypeFromConstructor", "Object.defineProperties", "_Iterator", "_StringIterator", "_ESAbstract.ArraySpeciesCreate", "Array.prototype.map", "Object.values", "Array.prototype.filter", "_ESAbstract.OrdinaryToPrimitive")
  * - _ESAbstract.CreateIterResultObject, License: CC0 (required by "Map", "Array.from", "Set")
+ * - _ESAbstract.EnumerableOwnProperties, License: CC0 (required by "Object.entries")
  * - _ESAbstract.GetIterator, License: CC0 (required by "Array.from", "Map", "Set")
  * - _ESAbstract.GetPrototypeFromConstructor, License: CC0 (required by "_ESAbstract.OrdinaryCreateFromConstructor", "Map", "Array.from", "Set", "_ESAbstract.Construct", "Array.of")
  * - _ESAbstract.OrdinaryCreateFromConstructor, License: CC0 (required by "Map", "Array.from", "Set", "_ESAbstract.Construct", "Array.of")
- * - _ESAbstract.IsConstructor, License: CC0 (required by "Array.from", "Array.of", "_ESAbstract.Construct", "_ESAbstract.ArraySpeciesCreate", "Array.prototype.map", "Object.values", "Symbol", "Map", "Set", "Symbol.iterator", "Array.prototype.filter")
- * - _ESAbstract.Construct, License: CC0 (required by "Array.from", "Array.of", "_ESAbstract.ArraySpeciesCreate", "Array.prototype.map", "Object.values", "Symbol", "Map", "Set", "Symbol.iterator", "Array.prototype.filter")
+ * - _ESAbstract.IsConstructor, License: CC0 (required by "Array.from", "Array.of", "_ESAbstract.Construct", "_ESAbstract.ArraySpeciesCreate", "Array.prototype.map", "Object.values", "Symbol", "Map", "Set", "Array.prototype.filter")
+ * - _ESAbstract.Construct, License: CC0 (required by "Array.from", "Array.of", "_ESAbstract.ArraySpeciesCreate", "Array.prototype.map", "Object.values", "Symbol", "Map", "Set", "Array.prototype.filter")
  * - _ESAbstract.IsRegExp, License: CC0 (required by "String.prototype.endsWith", "String.prototype.includes", "String.prototype.startsWith")
  * - _ESAbstract.IteratorClose, License: CC0 (required by "Array.from", "Map", "Set")
  * - _ESAbstract.IteratorComplete, License: CC0 (required by "Map", "Array.from", "Set", "_ESAbstract.IteratorStep")
  * - _ESAbstract.IteratorNext, License: CC0 (required by "Map", "Array.from", "Set", "_ESAbstract.IteratorStep")
  * - _ESAbstract.IteratorStep, License: CC0 (required by "Array.from", "Map", "Set")
  * - _ESAbstract.IteratorValue, License: CC0 (required by "Array.from", "Map", "Set")
- * - _ESAbstract.OrdinaryToPrimitive, License: CC0 (required by "_ESAbstract.ToPrimitive", "_ESAbstract.ToString", "Array.from", "Array.of", "Array.prototype.fill", "Array.prototype.find", "Array.prototype.findIndex", "Array.prototype.includes", "String.prototype.endsWith", "String.prototype.includes", "String.prototype.padEnd", "String.prototype.padStart", "String.prototype.repeat", "String.prototype.startsWith")
+ * - _ESAbstract.OrdinaryToPrimitive, License: CC0 (required by "_ESAbstract.ToPrimitive", "_ESAbstract.ToString", "Array.from", "Array.of", "Array.prototype.fill", "Array.prototype.find", "Array.prototype.findIndex", "Array.prototype.includes", "String.prototype.@@iterator", "String.prototype.endsWith", "String.prototype.includes", "String.prototype.padEnd", "String.prototype.padStart", "String.prototype.repeat", "String.prototype.startsWith")
  * - _ESAbstract.SameValue, License: CC0 (required by "Object.is")
  * - _ESAbstract.SameValueZero, License: CC0 (required by "Array.prototype.includes", "Map", "Array.from", "Set")
- * - _ESAbstract.ToPrimitive, License: CC0 (required by "_ESAbstract.ToString", "Array.from", "Array.of", "Array.prototype.fill", "Array.prototype.find", "Array.prototype.findIndex", "Array.prototype.includes", "String.prototype.endsWith", "String.prototype.includes", "String.prototype.padEnd", "String.prototype.padStart", "String.prototype.repeat", "String.prototype.startsWith")
- * - _ESAbstract.ToString, License: CC0 (required by "Array.from", "Array.of", "Array.prototype.fill", "Array.prototype.find", "Array.prototype.findIndex", "Array.prototype.includes", "String.prototype.endsWith", "String.prototype.includes", "String.prototype.padEnd", "String.prototype.padStart", "String.prototype.repeat", "String.prototype.startsWith", "Array.prototype.map", "Object.values", "Symbol", "Map", "Set", "Symbol.iterator", "Array.prototype.forEach", "Object.setPrototypeOf", "_ArrayIterator", "Array.prototype.keys", "Array.prototype.filter")
+ * - _ESAbstract.ToPrimitive, License: CC0 (required by "_ESAbstract.ToString", "Array.from", "Array.of", "Array.prototype.fill", "Array.prototype.find", "Array.prototype.findIndex", "Array.prototype.includes", "String.prototype.@@iterator", "String.prototype.endsWith", "String.prototype.includes", "String.prototype.padEnd", "String.prototype.padStart", "String.prototype.repeat", "String.prototype.startsWith")
+ * - _ESAbstract.ToString, License: CC0 (required by "Array.from", "Array.of", "Array.prototype.fill", "Array.prototype.find", "Array.prototype.findIndex", "Array.prototype.includes", "String.prototype.@@iterator", "String.prototype.endsWith", "String.prototype.includes", "String.prototype.padEnd", "String.prototype.padStart", "String.prototype.repeat", "String.prototype.startsWith", "Array.prototype.forEach", "Object.setPrototypeOf", "Symbol", "Map", "Set", "Array.prototype.map", "Object.values", "Array.prototype.filter")
  * - Array.of, License: CC0
  * - Array.prototype.copyWithin, License: MIT
  * - Array.prototype.fill, License: CC0
@@ -52,27 +53,41 @@
  * - Number.MIN_SAFE_INTEGER, License: MIT
  * - Number.parseFloat, License: MIT
  * - Number.parseInt, License: MIT
- * - Object.assign, License: CC0 (required by "_Iterator", "_ArrayIterator", "Array.prototype.keys")
+ * - Object.assign, License: CC0 (required by "_Iterator", "_ArrayIterator", "Array.prototype.entries", "Array.prototype.keys", "Array.prototype.values", "Array.prototype.@@iterator", "_StringIterator", "String.prototype.@@iterator")
+ * - Object.entries, License: CC0
  * - Object.is, License: CC0
- * - Object.setPrototypeOf, License: MIT (required by "_ArrayIterator", "Array.prototype.keys")
+ * - Object.setPrototypeOf, License: MIT (required by "_ArrayIterator", "Array.prototype.entries", "Array.prototype.keys", "Array.prototype.values", "Array.prototype.@@iterator", "_StringIterator", "String.prototype.@@iterator")
  * - Object.values, License: CC0
  * - Promise, License: MIT (required by "Promise.prototype.finally")
  * - String.prototype.endsWith, License: CC0
- * - String.prototype.includes, License: CC0 (required by "_ArrayIterator", "Array.prototype.keys")
+ * - String.prototype.includes, License: CC0 (required by "_ArrayIterator", "Array.prototype.entries", "Array.prototype.keys", "Array.prototype.values", "Array.prototype.@@iterator")
  * - String.prototype.padEnd, License: CC0
  * - String.prototype.padStart, License: CC0
  * - String.prototype.repeat, License: CC0
  * - String.prototype.startsWith, License: CC0
- * - Symbol, License: MIT (required by "Map", "Array.from", "Set", "Symbol.iterator", "Symbol.species", "_Iterator", "_ArrayIterator", "Array.prototype.keys", "Symbol.toStringTag")
- * - Symbol.iterator, License: MIT (required by "Array.from", "Map", "Set", "_Iterator", "_ArrayIterator", "Array.prototype.keys")
+ * - Symbol, License: MIT (required by "Map", "Array.from", "Set", "Symbol.hasInstance", "Symbol.isConcatSpreadable", "Symbol.iterator", "Array.prototype.@@iterator", "String.prototype.@@iterator", "Symbol.match", "Symbol.replace", "Symbol.search", "Symbol.species", "Symbol.split", "Symbol.toPrimitive", "Symbol.toStringTag", "Symbol.unscopables", "_Iterator", "_ArrayIterator", "Array.prototype.entries", "Array.prototype.keys", "Array.prototype.values", "_StringIterator")
+ * - Symbol.hasInstance, License: MIT
+ * - Symbol.isConcatSpreadable, License: MIT
+ * - Symbol.iterator, License: MIT (required by "Array.from", "Array.prototype.@@iterator", "Map", "Set", "String.prototype.@@iterator", "_Iterator", "_ArrayIterator", "Array.prototype.entries", "Array.prototype.keys", "Array.prototype.values", "_StringIterator")
+ * - Symbol.match, License: MIT
+ * - Symbol.replace, License: MIT
+ * - Symbol.search, License: MIT
  * - Symbol.species, License: MIT (required by "Map", "Array.from", "Set")
  * - Map, License: CC0 (required by "Array.from")
  * - Set, License: CC0 (required by "Array.from")
  * - Array.from, License: CC0
- * - Symbol.toStringTag, License: MIT (required by "_Iterator", "_ArrayIterator", "Array.prototype.keys")
- * - _Iterator, License: MIT (required by "_ArrayIterator", "Array.prototype.keys")
- * - _ArrayIterator, License: MIT (required by "Array.prototype.keys")
- * - Array.prototype.keys, License: CC0 */
+ * - Symbol.split, License: MIT
+ * - Symbol.toPrimitive, License: MIT
+ * - Symbol.toStringTag, License: MIT (required by "_Iterator", "_ArrayIterator", "Array.prototype.entries", "Array.prototype.keys", "Array.prototype.values", "Array.prototype.@@iterator", "_StringIterator", "String.prototype.@@iterator")
+ * - _Iterator, License: MIT (required by "_ArrayIterator", "Array.prototype.entries", "Array.prototype.keys", "Array.prototype.values", "Array.prototype.@@iterator", "_StringIterator", "String.prototype.@@iterator")
+ * - _ArrayIterator, License: MIT (required by "Array.prototype.entries", "Array.prototype.keys", "Array.prototype.values", "Array.prototype.@@iterator")
+ * - Array.prototype.entries, License: CC0
+ * - Array.prototype.keys, License: CC0
+ * - Array.prototype.values, License: MIT (required by "Array.prototype.@@iterator")
+ * - Array.prototype.@@iterator, License: CC0
+ * - _StringIterator, License: MIT (required by "String.prototype.@@iterator")
+ * - String.prototype.@@iterator, License: CC0
+ * - Symbol.unscopables, License: MIT */
 
 (function(undefined) {
 
@@ -387,6 +402,52 @@ function CreateIterResultObject(value, done) { // eslint-disable-line no-unused-
 	CreateDataProperty(obj, "done", done);
 	// 5. Return obj.
 	return obj;
+}
+
+// _ESAbstract.EnumerableOwnProperties
+/* globals Type, Get */
+// 7.3.21. EnumerableOwnProperties ( O, kind )
+function EnumerableOwnProperties(O, kind) { // eslint-disable-line no-unused-vars
+	// 1. Assert: Type(O) is Object.
+	// 2. Let ownKeys be ? O.[[OwnPropertyKeys]]().
+	var ownKeys = Object.keys(O);
+	// 3. Let properties be a new empty List.
+	var properties = [];
+	// 4. For each element key of ownKeys in List order, do
+	var length = ownKeys.length;
+	for (var i = 0; i < length; i++) {
+		var key = ownKeys[i];
+		// a. If Type(key) is String, then
+		if (Type(key) === 'string') {
+			// i. Let desc be ? O.[[GetOwnProperty]](key).
+			var desc = Object.getOwnPropertyDescriptor(O, key);
+			// ii. If desc is not undefined and desc.[[Enumerable]] is true, then
+			if (desc && desc.enumerable) {
+				// 1. If kind is "key", append key to properties.
+				if (kind === 'key') {
+					properties.push(key);
+					// 2. Else,
+				} else {
+					// a. Let value be ? Get(O, key).
+					var value = Get(O, key);
+					// b. If kind is "value", append value to properties.
+					if (kind === 'value') {
+						properties.push(value);
+						// c. Else,
+					} else {
+						// i. Assert: kind is "key+value".
+						// ii. Let entry be CreateArrayFromList(« key, value »).
+						var entry = [key, value];
+						// iii. Append entry to properties.
+						properties.push(entry);
+					}
+				}
+			}
+		}
+	}
+	// 5. Order the elements of properties so they are in the same relative order as would be produced by the Iterator that would be returned if the EnumerateObjectProperties internal method were invoked with O.
+	// 6. Return properties.
+	return properties;
 }
 
 // _ESAbstract.GetIterator
@@ -1384,6 +1445,24 @@ CreateMethodProperty(Object, 'assign', function assign(target, source) { // esli
 
 }
 
+if (!("entries"in Object
+)) {
+
+// Object.entries
+/* global CreateMethodProperty, EnumerableOwnProperties, ToObject */
+// 19.1.2.5. Object.entries ( O )
+CreateMethodProperty(Object, 'entries', function entries(O) {
+	// 1. Let obj be ? ToObject(O).
+	var obj = ToObject(O);
+	// 2. Let nameList be ? EnumerableOwnProperties(obj, "key+value").
+	var nameList = EnumerableOwnProperties(obj, "key+value");
+	// 3. Return CreateArrayFromList(nameList).
+	// Polyfill.io - nameList is already an array.
+	return nameList;
+});
+
+}
+
 if (!("is"in Object
 )) {
 
@@ -2016,12 +2095,57 @@ if (!("Symbol"in this&&0===this.Symbol.length
 
 }
 
+if (!("Symbol"in this&&"hasInstance"in this.Symbol
+)) {
+
+// Symbol.hasInstance
+/* global Symbol */
+Object.defineProperty(Symbol, 'hasInstance', { value: Symbol('hasInstance') });
+
+}
+
+if (!("Symbol"in this&&"isConcatSpreadable"in this.Symbol
+)) {
+
+// Symbol.isConcatSpreadable
+/* global Symbol */
+Object.defineProperty(Symbol, 'isConcatSpreadable', { value: Symbol('isConcatSpreadable') });
+
+}
+
 if (!("Symbol"in this&&"iterator"in this.Symbol
 )) {
 
 // Symbol.iterator
 /* global Symbol */
 Object.defineProperty(Symbol, 'iterator', { value: Symbol('iterator') });
+
+}
+
+if (!("Symbol"in this&&"match"in this.Symbol
+)) {
+
+// Symbol.match
+/* global Symbol */
+Object.defineProperty(Symbol, 'match', { value: Symbol('match') });
+
+}
+
+if (!("Symbol"in this&&"replace"in this.Symbol
+)) {
+
+// Symbol.replace
+/* global Symbol */
+Object.defineProperty(Symbol, 'replace', { value: Symbol('replace') });
+
+}
+
+if (!("Symbol"in this&&"search"in this.Symbol
+)) {
+
+// Symbol.search
+/* global Symbol */
+Object.defineProperty(Symbol, 'search', { value: Symbol('search') });
 
 }
 
@@ -3256,6 +3380,24 @@ if (!("from"in Array&&function(){try{return Array.from({length:-Infinity}),!0}ca
 
 }
 
+if (!("Symbol"in this&&"split"in this.Symbol
+)) {
+
+// Symbol.split
+/* global Symbol */
+Object.defineProperty(Symbol, 'split', { value: Symbol('split') });
+
+}
+
+if (!("Symbol"in this&&"toPrimitive"in this.Symbol
+)) {
+
+// Symbol.toPrimitive
+/* global Symbol */
+Object.defineProperty(Symbol, 'toPrimitive', { value: Symbol('toPrimitive') });
+
+}
+
 if (!("Symbol"in this&&"toStringTag"in this.Symbol
 )) {
 
@@ -3503,6 +3645,22 @@ var ArrayIterator = (function() { // eslint-disable-line no-unused-vars
 
 	return ArrayIterator;
 }());
+if (!("Symbol"in this&&"iterator"in this.Symbol&&!!Array.prototype.entries
+)) {
+
+// Array.prototype.entries
+/* global CreateMethodProperty, ToObject */
+// 22.1.3.4. Array.prototype.entries ( )
+CreateMethodProperty(Array.prototype, 'entries', function entries() {
+	// 1. Let O be ? ToObject(this value).
+	var O = ToObject(this);
+	// 2. Return CreateArrayIterator(O, "key+value").
+	// TODO: Add CreateArrayIterator
+	return new ArrayIterator(O, 'key+value');
+});
+
+}
+
 if (!("Symbol"in this&&"iterator"in this.Symbol&&!!Array.prototype.keys
 )) {
 
@@ -3516,6 +3674,128 @@ CreateMethodProperty(Array.prototype, 'keys', function keys() {
 	// TODO: Add CreateArrayIterator.
 	return new ArrayIterator(O, 'key');
 });
+
+}
+
+if (!("values"in Array.prototype
+)) {
+
+// Array.prototype.values
+/* global CreateMethodProperty, Symbol, ToObject */
+// 22.1.3.30/ Array.prototype.values ( )
+// Polyfill.io - Firefox, Chrome and Opera have Array.prototype[Symbol.iterator], which is the exact same function as Array.prototype.values.
+if ('Symbol' in this && 'iterator' in Symbol && typeof Array.prototype[Symbol.iterator] === 'function') {
+	CreateMethodProperty(Array.prototype, 'values', Array.prototype[Symbol.iterator]);
+} else {
+	CreateMethodProperty(Array.prototype, 'values', function values () {
+		// 1. Let O be ? ToObject(this value).
+		var O = ToObject(this);
+		// 2. Return CreateArrayIterator(O, "value").
+		// TODO: Add CreateArrayIterator
+		return new ArrayIterator(O, 'value');
+	});
+}
+
+}
+
+if (!("Symbol"in this&&"iterator"in this.Symbol&&!!Array.prototype[Symbol.iterator]
+)) {
+
+// Array.prototype.@@iterator
+/* global Symbol, CreateMethodProperty */
+// 22.1.3.31. Array.prototype [ @@iterator ] ( )
+// The initial value of the @@iterator property is the same function object as the initial value of the  Array.prototype.values property.
+CreateMethodProperty(Array.prototype, Symbol.iterator, Array.prototype.values);
+
+}
+
+
+// _StringIterator
+// A modification of https://github.com/medikoo/es6-iterator
+// Copyright (C) 2013-2015 Mariusz Nowak (www.medikoo.com)
+
+/* global Iterator */
+
+var StringIterator = (function() { // eslint-disable-line no-unused-vars
+
+	var StringIterator = function (str) {
+		if (!(this instanceof StringIterator)) return new StringIterator(str);
+		str = String(str);
+		Iterator.call(this, str);
+		Object.defineProperty(this, '__length__', {
+			value: str.length,
+			configurable: false,
+			enumerable: false,
+			writable: false
+		});
+	};
+	if (Object.setPrototypeOf) Object.setPrototypeOf(StringIterator, Iterator);
+
+	StringIterator.prototype = Object.create(Iterator.prototype, {
+		constructor: {
+			value: StringIterator,
+			configurable: true,
+			enumerable: false,
+			writable: true
+		},
+		_next: {
+			value: function() {
+				if (!this.__list__) return;
+				if (this.__nextIndex__ < this.__length__) return this.__nextIndex__++;
+				this._unBind();
+			},
+			configurable: true,
+			enumerable: false,
+			writable: true
+		},
+		_resolve: {
+			value: function (i) {
+				var char = this.__list__[i], code;
+				if (this.__nextIndex__ === this.__length__) return char;
+				code = char.charCodeAt(0);
+				if ((code >= 0xD800) && (code <= 0xDBFF)) return char + this.__list__[this.__nextIndex__++];
+				return char;
+			},
+			configurable: true,
+			enumerable: false,
+			writable: true
+		},
+		toString: {
+			value: function() {
+				return '[object String Iterator]';
+			},
+			configurable: true,
+			enumerable: false,
+			writable: true
+		}
+	});
+
+	return StringIterator;
+}());
+if (!("Symbol"in this&&"iterator"in this.Symbol&&!!String.prototype[Symbol.iterator]
+)) {
+
+// String.prototype.@@iterator
+/* global CreateMethodProperty, RequireObjectCoercible, ToString, StringIterator, Symbol */
+// 21.1.3.29. String.prototype [ @@iterator ] ( )
+CreateMethodProperty(String.prototype, Symbol.iterator, function () {
+	// 1. Let O be ? RequireObjectCoercible(this value).
+	var O = RequireObjectCoercible(this);
+	// 2. Let S be ? ToString(O).
+	var S = ToString(O);
+	// 3. Return CreateStringIterator(S).
+	// TODO: Add CreateStringIterator.
+	return new StringIterator(S);
+});
+
+}
+
+if (!("Symbol"in this&&"unscopables"in this.Symbol
+)) {
+
+// Symbol.unscopables
+/* global Symbol */
+Object.defineProperty(Symbol, 'unscopables', { value: Symbol('unscopables') });
 
 }
 
