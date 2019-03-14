@@ -3068,7 +3068,7 @@ if (!("Symbol"in this&&0===this.Symbol.length
 			sourceConstructor
 		));
 	};
-	var Symbol = function Symbol() {
+	var Symbol = function () {
 		var description = arguments[0];
 		if (this instanceof Symbol) {
 			throw new TypeError('Symbol is not a constructor');
@@ -3235,7 +3235,7 @@ return 0===Map.length&&2===t.size&&"Symbol"in this&&"iterator"in Symbol&&"functi
 	// Deleted map items mess with iterator pointers, so rather than removing them mark them as deleted. Can't use undefined or null since those both valid keys so use a private symbol.
 	var undefMarker = Symbol('undef');
 	// 23.1.1.1 Map ( [ iterable ] )
-	var Map = function Map(/* iterable */) {
+	var Map = function (/* iterable */) {
 		// 1. If NewTarget is undefined, throw a TypeError exception.
 		if (!(this instanceof Map)) {
 			throw new TypeError('Constructor Map requires "new"');
@@ -3799,7 +3799,7 @@ return 0===Set.length&&2===t.size&&"Symbol"in this&&"iterator"in Symbol&&"functi
 	// Deleted set items mess with iterator pointers, so rather than removing them mark them as deleted. Can't use undefined or null since those both valid keys so use a private symbol.
 	var undefMarker = Symbol('undef');
 	// 23.2.1.1. Set ( [ iterable ] )
-	var Set = function Set(/* iterable */) {
+	var Set = function (/* iterable */) {
 		// 1. If NewTarget is undefined, throw a TypeError exception.
 		if (!(this instanceof Set)) {
 			throw new TypeError('Constructor Set requires "new"');
