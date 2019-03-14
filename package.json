@@ -4,7 +4,8 @@
   "description": "esnext api polyfill",
   "main": "index.js",
   "scripts": {
-    "build": "node index.js",
+    "fixie8": "node fix-features-ie8.js",
+    "build": "yarn fixie8 && node build.js && gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
