@@ -19,6 +19,9 @@
   },
   "homepage": "https://github.com/52cik/polyfills-ie#readme",
   "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-uglify": "^1.5.4",
     "polyfill-library": "^3.31.1"
   }
 }
