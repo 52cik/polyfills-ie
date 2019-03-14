@@ -48,6 +48,12 @@ function write(str) {
 }
 
 (function() {
+  test('Array.entries', function () {
+    var arr = ['a', 'b'];
+    var iterator = arr.entries();
+    iterator.next();
+    return iterator.next().value;
+  }, [1, 'b']);
   test('Array.from', Array.from([1, 2, 3], function(x) { return x + x }), [2, 4, 6]);
   test('Array.isArray', Array.isArray([1, 2, 3]) && !Array.isArray({ foo: 123 }), true);
   test('Array.of', Array.of(1, 2, 3), [1, 2, 3]);
@@ -68,6 +74,12 @@ function write(str) {
   test('Array.prototype.reduce', [1, 2, 3, 4].reduce(function(accumulator, currentValue) { return accumulator + currentValue}), 10);
   test('Array.prototype.reduceRight', [[0, 1], [2, 3], [4, 5]].reduceRight(function(accumulator, currentValue) { return accumulator.concat(currentValue) }), [4, 5, 2, 3, 0, 1]);
   test('Array.prototype.some', [1, 2, 3, 4].some(function(it) { return it % 2 === 0 }), true);
+  test('Array.values', function () {
+    var arr = ['a', 'b'];
+    var iterator = arr.values();
+    iterator.next();
+    return iterator.next().value;
+  }, 'b');
 
   test('Date.now', Date.now() / 1000 | 0, (+new Date()) / 1000 | 0);
   test('Date.prototype.toISOString', new Date('2020/02/20 20:20:20').toISOString(), '2020-02-20T12:20:20.000Z');
@@ -87,9 +99,16 @@ function write(str) {
 
   test('Object.assign', Object.assign({ a: 1, x: 3 }, { a: 2, b: 2 }), { a: 2, b: 2, x: 3 });
   test('Object.create', Object.create({ a: 1, x: 3 }).x, 3);
+  test('Object.entries', Object.entries({ a: 1, x: 3 })[1], ['x', 3]);
+  test('Object.freeze', Object.freeze({ a: 1, x: 3 }), { a: 1, x: 3 });
+  test('Object.seal', Object.seal({ a: 1, x: 3 }), { a: 1, x: 3 });
   test('Object.is', Object.is(null, null), true);
   test('Object.keys', Object.keys({ a: 1, x: 3 }), ['a', 'x']);
-  // test('Object.values', Object.values({ a: 1, x: 3 }), [1, 3]);
+  test('Object.values', Object.values({ a: 1, x: 3 }), [1, 3]);
+  test('Object.getOwnPropertyDescriptor', Object.getOwnPropertyDescriptor({ a: 1, x: 3 }, 'x').value, 3);
+  test('Object.getOwnPropertyNames', Object.getOwnPropertyNames({ a: 1, x: 3 }), ['a', 'x']);
+  test('Object.getPrototypeOf', Object.getPrototypeOf({ __proto__: { a: 1, x: 3 } }), { a: 1, x: 3 });
+  test('Object.setPrototypeOf', Object.setPrototypeOf({ a: 1 }, { x: 3 }).x, 3);
   test('Object.defineProperty', (function () {
     var obj = {};
     Object.defineProperty(obj, 'haha', {
@@ -112,6 +131,8 @@ function write(str) {
     return obj;
   })().hehe, 22);
 
+  test('Symbol', /symbol\b/i.test(Symbol('233').toString()), true);
+
   test('Set', (function () {
     var set = new Set([11, 22, 33]);
     return set.has(22);
@@ -131,4 +152,7 @@ function write(str) {
     Promise.resolve(obj)['finally'](function() { obj.a = 2333 });
     return Promise.resolve(obj);
   }, { a: 2333 });
+
+  test('atob', atob('MjMzMw=='), '2333');
+  test('btoa', btoa('2333'), 'MjMzMw==');
 })();
